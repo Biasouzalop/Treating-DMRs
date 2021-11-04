@@ -36,12 +36,10 @@ final = []
 i=0
 for linha in annot[1:]:
   if linha == ['NA']:
-    final.append(['NA','NA','NA','NA'])
+    Arquivo('Complementation info.csv').salvar([['NA','NA','NA','NA']],append_mode=True)
     print(i)
     i+=1
     continue
-  final.append(pesquisa(linha))
+  Arquivo('Complementation info.csv').salvar([pesquisa(linha)],append_mode=True)
   print(i)
   i+=1
-print(final)
-Arquivo('Complementation info.csv').salvar(final)
