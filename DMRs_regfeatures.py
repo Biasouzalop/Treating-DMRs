@@ -21,14 +21,16 @@ for x in coords[1:]:
         }
     },header = 0)
 
+    resultado = []
+
     for line in response.iter_lines():
         line = line.decode('utf-8')
+        resultado.append(x + list(line.split("\t")))
+        Arquivo('dmrs_JME_regfeatures.csv').salvar(resultado,append_mode=True)
         
-        Arquivo('dmrs_JME_regfeatures.csv').salvar([x],[line.split("\t")],append_mode=True)
     
     print(i)
     i += 1
-    
 
 
 
